@@ -1,4 +1,4 @@
-package cesar.next.aula19.model;
+package cesar.next.aula21.model;
 
 import java.util.List;
 
@@ -21,17 +21,15 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column
+
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column
-    private String description;
-    @Column
-    private double price;
-    @Column
-    private int amountService;
+
+    @Column(name = "value", nullable = false)
+    private double value;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", nullable = false)
     @JsonBackReference
     private Category category;
 
@@ -40,50 +38,43 @@ public class Product {
     // @JoinTable(name = "order_products", joinColumns = @JoinColumn(name =
     // "product_id", referencedColumnName = "id"), inverseJoinColumns =
     // @JoinColumn(name = "product_id", referencedColumnName = "id"))
-    private List<Pedido> pedidos;
+    private List<Order> orders;
+
+    public Product() {
+    }
+
+    public Product(String name, double value, Category category) {
+        this.name = name;
+        this.value = value;
+        this.category = category;
+    }
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getAmountService() {
-        return amountService;
-    }
-
-    public void setAmountService(int amountService) {
-        this.amountService = amountService;
+    public double getValue() {
+        return value;
     }
 
     public Category getCategory() {
         return category;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 
     public void setCategory(Category category) {
