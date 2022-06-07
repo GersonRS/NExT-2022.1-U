@@ -1,5 +1,6 @@
 package cesar.next.aula19.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -23,7 +24,40 @@ public class Pedido {
     private double total;
 
     @ManyToMany(mappedBy = "pedidos")
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
+
+    // @OneToMany(mappedBy = "pedido")
+    // @JsonIgnore
+    // private List<ProductsPedidos> products = new ArrayList<>();
+
+    public Pedido() {
+    }
+
+    public Pedido(String date, double total) {
+        this.date = date;
+        this.total = total;
+    }
+
+    // public void addProduct(Product product, int qtd) {
+    // ProductsPedidos itemPedido = new ProductsPedidos(product, this, qtd);
+    // this.products.add(itemPedido);
+    // // product.getPedidos().add(itemPedido);
+    // }
+
+    // public void removeTag(Product product) {
+    // for (Iterator<ProductsPedidos> iterator = products.iterator();
+    // iterator.hasNext();) {
+    // ProductsPedidos itemPedidoTmp = iterator.next();
+
+    // if (itemPedidoTmp.getProduct().equals(product) &&
+    // itemPedidoTmp.getPedido().equals(this)) {
+    // iterator.remove();
+    // itemPedidoTmp.getPedido().getProducts().remove(itemPedidoTmp);
+    // itemPedidoTmp.setPedido(null);
+    // itemPedidoTmp.setProduct(null);
+    // }
+    // }
+    // }
 
     public long getId() {
         return id;
@@ -48,4 +82,13 @@ public class Pedido {
     public void setTotal(double total) {
         this.total = total;
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
 }

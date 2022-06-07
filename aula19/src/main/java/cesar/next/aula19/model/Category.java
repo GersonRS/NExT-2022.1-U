@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -24,7 +26,16 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category")
+    @JsonBackReference
     private List<Product> products = new ArrayList<>();
+
+    public Category() {
+    }
+
+    public Category(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public long getId() {
         return id;

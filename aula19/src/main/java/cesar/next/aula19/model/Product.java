@@ -1,5 +1,6 @@
 package cesar.next.aula19.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -35,12 +36,25 @@ public class Product {
     @JsonBackReference
     private Category category;
 
-    @JsonBackReference
+    // @JsonBackReference
     @ManyToMany
-    // @JoinTable(name = "order_products", joinColumns = @JoinColumn(name =
-    // "product_id", referencedColumnName = "id"), inverseJoinColumns =
-    // @JoinColumn(name = "product_id", referencedColumnName = "id"))
-    private List<Pedido> pedidos;
+    // @JoinTable(name = "products_pedidos", joinColumns = @JoinColumn(name =
+    // "pedidos_id", referencedColumnName = "id"), inverseJoinColumns =
+    // @JoinColumn(name = "products_id", referencedColumnName = "id"))
+    private List<Pedido> pedidos = new ArrayList<>();
+
+    // @OneToMany(mappedBy = "product")
+    // private List<ProductsPedidos> pedidos = new ArrayList<>();
+
+    public Product() {
+    }
+
+    public Product(String name, String description, double price, int amountService) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.amountService = amountService;
+    }
 
     public long getId() {
         return id;
@@ -88,6 +102,14 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
 }
