@@ -1,7 +1,7 @@
 package cesar.next.aula19.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,8 +23,8 @@ public class Pedido {
     @Column
     private double total;
 
-    @ManyToMany(mappedBy = "pedidos")
-    private List<Product> products = new ArrayList<>();
+    @ManyToMany
+    private Set<Product> products = new HashSet<>();
 
     // @OneToMany(mappedBy = "pedido")
     // @JsonIgnore
@@ -83,11 +83,11 @@ public class Pedido {
         this.total = total;
     }
 
-    public List<Product> getProducts() {
+    public Set<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(Set<Product> products) {
         this.products = products;
     }
 

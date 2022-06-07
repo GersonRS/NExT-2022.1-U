@@ -37,7 +37,7 @@ public class Product {
     private Category category;
 
     // @JsonBackReference
-    @ManyToMany
+    @ManyToMany(mappedBy = "products")
     // @JoinTable(name = "products_pedidos", joinColumns = @JoinColumn(name =
     // "pedidos_id", referencedColumnName = "id"), inverseJoinColumns =
     // @JoinColumn(name = "products_id", referencedColumnName = "id"))

@@ -36,17 +36,16 @@ public class LoadDataBase {
 
             Pedido o1 = new Pedido("07/07/2022", 53.5);
             Pedido o2 = new Pedido("07/07/2022", 20.0);
-
-            log.info("Salvando pedido: " + pedidoRepository.save(o1));
-            log.info("Salvando pedido: " + pedidoRepository.save(o2));
-
-            p1.getPedidos().add(o2);
-            p2.getPedidos().add(o1);
-            p3.getPedidos().add(o1);
-
             log.info("Salvando produto: " + productRepository.save(p1));
             log.info("Salvando produto: " + productRepository.save(p2));
             log.info("Salvando produto: " + productRepository.save(p3));
+
+            o1.getProducts().add(p2);
+            o1.getProducts().add(p3);
+            o2.getProducts().add(p1);
+
+            log.info("Salvando pedido: " + pedidoRepository.save(o1));
+            log.info("Salvando pedido: " + pedidoRepository.save(o2));
 
         };
     }
