@@ -26,10 +26,6 @@ public class Pedido {
     @ManyToMany
     private Set<Product> products = new HashSet<>();
 
-    // @OneToMany(mappedBy = "pedido")
-    // @JsonIgnore
-    // private List<ProductsPedidos> products = new ArrayList<>();
-
     public Pedido() {
     }
 
@@ -37,27 +33,6 @@ public class Pedido {
         this.date = date;
         this.total = total;
     }
-
-    // public void addProduct(Product product, int qtd) {
-    // ProductsPedidos itemPedido = new ProductsPedidos(product, this, qtd);
-    // this.products.add(itemPedido);
-    // // product.getPedidos().add(itemPedido);
-    // }
-
-    // public void removeTag(Product product) {
-    // for (Iterator<ProductsPedidos> iterator = products.iterator();
-    // iterator.hasNext();) {
-    // ProductsPedidos itemPedidoTmp = iterator.next();
-
-    // if (itemPedidoTmp.getProduct().equals(product) &&
-    // itemPedidoTmp.getPedido().equals(this)) {
-    // iterator.remove();
-    // itemPedidoTmp.getPedido().getProducts().remove(itemPedidoTmp);
-    // itemPedidoTmp.setPedido(null);
-    // itemPedidoTmp.setProduct(null);
-    // }
-    // }
-    // }
 
     public long getId() {
         return id;

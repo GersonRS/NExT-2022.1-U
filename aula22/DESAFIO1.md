@@ -18,13 +18,13 @@
 
 ## Sobre o desafio
 
-Nesse desafio, você irá desenvolver e fazer o deploy de uma API REST para a loja de Star Wars. Agora você irá praticar o que você aprendeu até agora no modulo de Back-End do NExT com Python e Flask, para criar uma pequena API para um e-commerce.
+Nesse desafio, você irá desenvolver uma API REST para a loja de Star Wars. Agora você irá praticar o que você aprendeu até agora no modulo de Back-End do NExT com Java e Spring, para criar uma pequena API para um e-commerce.
 
 Essa será uma API que receberá requisições de um aplicativo movel (Android e iOS). Todos os itens serão colocados em um carrinho do lado do aplicativo e passados para a API para realizar uma transação e-commerce.
 
-O candidato tem a liberdade de realizar o desafio da maneira que achar melhor, usando ou não a arquitetura, bibliotecas foi forma de codificar.
+O candidato tem a liberdade de realizar o desafio da maneira que achar melhor, usando ou não a arquitetura, bibliotecas e forma de codificar.
 
-Deverá informar quais tecnologias foram usadas(biblioteca, estrutura e versão do python), como instalar, rodar e efetuar os acessos neste arquivo README.md na seção <a href="#informações-do-projeto">Informações do projeto</a>
+Deverá informar quais tecnologias foram usadas(biblioteca, estrutura e versão do java), como instalar, rodar e efetuar os acessos neste arquivo README.md na seção <a href="#informações-do-projeto">Informações do projeto</a>
 
 ## Orientações
 
@@ -34,11 +34,11 @@ Desenvolva o case seguindo as melhores práticas que julgar necessário, aplique
 
 ## Configuração do Projeto
 
-Python 3.*, Flask, pip para gerenciamento de dependências e MySQL Database para banco de dados.
+Java >= 8, Spring Boot, Maven para gerenciamento de dependências e MySQL Database para banco de dados.
 
 Para que vocês tenham os dados para exibir em tela, vocês deverão criar alguns registros no seu banco de dados para te prover esses dados.
 
-Ao se ter a base de dados, vocês deverão criar a aplicação Flask e as suas rotas, onde retornaram seus devidos dados
+Ao se ter a base de dados, vocês deverão criar a aplicação Spring e as suas rotas, onde retornaram seus devidos dados
 
 ## Funcionalidades da API
 
@@ -210,38 +210,48 @@ Esse método deve retornar todos as compras realizadas na API por um cliente esp
 ### Estrutura de Arquivos
 A estrutura de arquivos está da seguinte maneira:
 ```bash
-    aqui você deverá colocar a estrutura do seu projeto.
-    exemplo da aula18:
-    aula18
-    ├── app.py
-    ├── ext
-    │   ├── api
-    │   │   ├── __init__.py
-    │   │   └── resource.py
-    │   ├── cli
-    │   │   ├── commands.py
-    │   │   └── __init__.py
-    │   ├── config
-    │   │   └── __init__.py
-    │   ├── database
-    │   │   └── __init__.py
-    │   ├── __init__.py
-    │   ├── models.py
-    │   └── site
-    │       ├── __init__.py
-    │       ├── main.py
-    │       └── templates
-    │           ├── layout
-    │           │   └── base.html
-    │           └── product
-    │               ├── create.html
-    │               └── index.html
-    ├── __init__.py
-    └── setup.py
+   aqui você deverá colocar a estrutura do seu projeto.
+   exemplo da aula22:
+   aula22
+   ├── HELP.md
+   ├── mvnw
+   ├── mvnw.cmd
+   ├── pom.xml
+   ├── src
+   │   ├── main
+   │   │   ├── java
+   │   │   │   └── br
+   │   │   │       └── org
+   │   │   │           └── cesar
+   │   │   │               └── aula22
+   │   │   │                   └── Aula22Application.java
+   │   │   └── resources
+   │   │       ├── application.properties
+   │   │       ├── static
+   │   │       └── templates
+   │   └── test
+   │       └── java
+   │           └── br
+   │               └── org
+   │                   └── cesar
+   │                       └── aula22
+   │                           └── Aula22ApplicationTests.java
+   └── target
+      ├── classes
+      │   ├── application.properties
+      │   └── br
+      │       └── org
+      │           └── cesar
+      │               └── aula22
+      │                   └── Aula22Application.class
+      └── test-classes
+         └── br
+               └── org
+                  └── cesar
+                     └── aula22
+                           └── Aula22ApplicationTests.class
 
-    9 directories, 16 files
-
->>> PS.: apague esta parte e faça o seu
+27 directories, 13 files
 ```
 
 ## Expandindo os horizontes
